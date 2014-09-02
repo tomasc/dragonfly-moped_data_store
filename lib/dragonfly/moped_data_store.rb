@@ -25,6 +25,14 @@ module Dragonfly
       @db = opts[:db]
     end
 
+    def session
+      @session ||= Moped::Session.new(["#{@host}:#{@port}"]).tap do |session|
+        session.use @db
+      end
+    end
+
+    # ---------------------------------------------------------------------
+    
     def write temp_object, opts={}
       content_type = opts[:content_type] || opts[:mime_type] || 'application/octet-stream'
       meta = temp_object.meta
@@ -38,12 +46,6 @@ module Dragonfly
     end
 
     # ---------------------------------------------------------------------
-
-    def session
-      @session ||= Moped::Session.new(["#{@host}:#{@port}"]).tap do |session|
-        session.use @db
-      end
-    end
 
     def read uid
       grid_file = session.bucket.open(uid, 'r')
