@@ -65,4 +65,4 @@ module Dragonfly
   end
 end
 
-Dragonfly::App.register_datastore(:mongoid){ Dragonfly::MopedDataStore }
+Dragonfly::App.register_datastore(:moped){ Dragonfly::MopedDataStore }
