@@ -5,7 +5,7 @@ require 'dragonfly/moped_data_store/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "dragonfly-moped_data_store"
-  spec.version       = Dragonfly::MongoidDataStore::VERSION
+  spec.version       = Dragonfly::MopedDataStore::VERSION
   spec.authors       = ["Tomas Celizna"]
   spec.email         = ["tomas.celizna@gmail.com"]
   spec.summary       = %q{Dragonfly data store that uses Moped::GridFS.}
